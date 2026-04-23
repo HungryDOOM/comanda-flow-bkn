@@ -3,6 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const productosRoutes = require('./routes/productos');
+const { default: pedidosController } = require('./controllers/pedidosController');
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 
 //Rutas
 app.use('/productos', productosRoutes);
+app.use('/pedidos', pedidosRoutes);
 
 //Manejo de errores
 app.use((err, req, res, next) => {
