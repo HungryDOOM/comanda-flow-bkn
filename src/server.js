@@ -13,5 +13,6 @@ app.use(express.json());
 app.use("/productos", productosRoutes);
 app.use("/pedidos", pedidosRoutes);
 app.use("/getPedidos", pedidosRoutes);
+app.use("/updatePedidoStatus", pedidosRoutes);
 
 app.listen(PORT, () => console.log(`Servidor backend en puerto ${PORT}`));
