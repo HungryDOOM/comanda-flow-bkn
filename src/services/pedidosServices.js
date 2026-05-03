@@ -13,4 +13,11 @@ async function obtenerPedidos() {
   return rows;
 }
 
-export default { enviarPedidos, obtenerPedidos };
+async function actualizarEstadoPedido(id, estado) {
+  const query = "UPDATE pedidos SET estado = $1 WHERE id = $2 RETURNING *";
+  const values = [estado, id];
+  const { rows } = await pool.query(query, values);
+  return rows[0];
+}
+
+export default { enviarPedidos, obtenerPedidos, actualizarEstadoPedido };

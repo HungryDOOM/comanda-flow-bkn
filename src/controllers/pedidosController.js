@@ -19,6 +19,17 @@ const pedidosController = {
     catch (error) {
       next(error);
     }
+  },
+  updatePedidoStatus: async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const { estado } = req.body;
+      const pedidoActualizado = await pedidosServices.actualizarEstadoPedido(id, estado);
+      res.json(pedidoActualizado);
+    }
+    catch (error) {
+      next(error);
+    }
   }
 }
 
