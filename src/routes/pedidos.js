@@ -4,6 +4,6 @@ const router = express.Router();
 
 router.post("/", pedidosController.sendPedidos);
 router.get("/", pedidosController.getPedidos);
-router.put("/:id", pedidosController.updatePedidoStatus);
+router.put("/:comanda", pedidosController.updatePedidoStatus);
 
 export default router;
