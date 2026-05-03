@@ -3,8 +3,8 @@ import pedidosServices from "../services/pedidosServices.js";
 const pedidosController = {
   sendPedidos: async (req, res, next) => {
     try {
-      const { mesa, pedido, precio_total } = req.body;
-      const nuevoPedido = await pedidosServices.enviarPedidos(mesa, pedido, precio_total);
+      const { mesa, pedido, precio_total, comanda } = req.body;
+      const nuevoPedido = await pedidosServices.enviarPedidos(mesa, pedido, precio_total, comanda);
       res.json(nuevoPedido);
     }
     catch (error) {
